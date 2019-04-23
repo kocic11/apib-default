@@ -13,15 +13,15 @@ stages {
       }
     }
   }
-stage('Push Docker Image') {
-steps{
-script {
-docker.withRegistry( '', params.credential_id ) {
-image.push()
-}
-}
-}
-}
+  stage('Push Docker Image') {
+    steps{
+      script {
+      docker.withRegistry( '', params.credential_id ) {
+        image.push()
+      }
+      }
+    }
+  }
 stage('Run Docker Container') {
 steps{
 sh "ssh ${params.deploy_user}@${params.deploy_ip} docker run -d --name myproject -p 8080:8080 $docker_repo:latest"
