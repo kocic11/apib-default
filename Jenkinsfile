@@ -6,13 +6,13 @@ stages {
       git "${params.project_repo}"
     }
   }
-stage('Build Docker image') {
-steps{
-script {
-image = docker.build params.docker_repo + ":latest"
-}
-}
-}
+  stage('Build Docker image') {
+    steps{
+      script {
+      image = docker.build params.docker_repo + ":latest"
+      }
+    }
+  }
 stage('Push Docker Image') {
 steps{
 script {
