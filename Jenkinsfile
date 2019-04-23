@@ -30,7 +30,7 @@ stages {
   }
   stage('Clean up') {
     steps{
-    // sh "docker rmi ${params.docker_repo}:latest"
+    sh "docker rmi ${params.docker_repo}:latest"
     deleteDir()
     }
     }
