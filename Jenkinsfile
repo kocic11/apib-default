@@ -30,6 +30,7 @@ stages {
   }
   stage('Clean up') {
     steps{
+      sh "ssh ${params.deploy_user}@${params.deploy_ip} docker stop myproject"
       sh "ssh ${params.deploy_user}@${params.deploy_ip} docker rm myproject"
       //sh "docker rmi ${params.docker_repo}:latest"
       deleteDir()
