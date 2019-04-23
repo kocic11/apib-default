@@ -2,10 +2,10 @@ pipeline {
 agent any
 stages {
   stage('Clone API Builder project') {
-steps {
-  git "${params.project_repo}"
-}
-}
+    steps {
+      git "${params.project_repo}"
+    }
+  }
 stage('Build Docker image') {
 steps{
 script {
