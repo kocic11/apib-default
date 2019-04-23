@@ -16,9 +16,9 @@ stages {
   stage('Push Docker Image') {
     steps{
       script {
-      docker.withRegistry( '', params.credential_id ) {
-        image.push()
-      }
+        docker.withRegistry( '', params.credential_id ) {
+          image.push()
+        }
       }
     }
   }
