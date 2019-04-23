@@ -28,11 +28,11 @@ stages {
       sh "ssh ${params.deploy_user}@${params.deploy_ip} docker ps"
     }
   }
-stage('Clean up') {
-steps{
-// sh "docker rmi ${params.docker_repo}:latest"
-deleteDir()
-}
-}
-}
+  stage('Clean up') {
+    steps{
+    // sh "docker rmi ${params.docker_repo}:latest"
+    deleteDir()
+    }
+    }
+  }
 }
